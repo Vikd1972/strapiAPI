@@ -7,12 +7,11 @@ export default {
 
       ctx.response.body = data;
     } catch (error) {
-      console.log('controller', error)
+      console.log(error)
     }
   },
   getFilteredBlogs: async (ctx, next) => {
     const { topic } = ctx.query
-    // console.log(filter)
     try {
       const data = await strapi
         .service("api::message.message")
@@ -20,10 +19,19 @@ export default {
 
       ctx.response.body = data;
     } catch (error) {
-      console.log('controller', error)
+      console.log(error)
     }
   },
-  exampleAction1: async (ctx, next) => {
-    return ctx;
+  setBlog: async (ctx, next) => {
+    const blog = ctx.request.body
+    try {
+      const data = await strapi
+        .service("api::message.message")
+        .setBlog(blog);
+
+      ctx.response.body = data;
+    } catch (error) {
+      console.log(error)
+    }
   },
 };

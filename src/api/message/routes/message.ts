@@ -20,8 +20,8 @@ export default {
     },
     {
       method: 'POST',
-      path: '/message/:id',
-      handler: 'message.exampleAction1',
+      path: '/message',
+      handler: 'message.setBlog',
       config: {
         policies: [],
         middlewares: [],

@@ -29,5 +29,25 @@ export default {
     } catch (error) {
       console.log('servises', error)
     }
+  },
+  setBlog: async (blog) => {
+    try {
+      await strapi.entityService.create(
+        "api::blog.blog", {
+        populate: '*',
+        data: blog,
+      }
+      );
+
+      const blogs = await strapi.entityService.findMany(
+        "api::blog.blog", {
+        populate: '*',
+        sort: { createdAt: 'DESC' },
+      }
+      );
+      return blogs;
+    } catch (error) {
+      console.log('servises', error)
+    }
   }
 };
