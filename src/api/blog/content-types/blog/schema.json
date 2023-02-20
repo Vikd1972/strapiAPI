@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "topic": {
+      "type": "enumeration",
+      "enum": [
+        "physics",
+        "astronomy",
+        "literature",
+        "life",
+        "other"
+      ],
+      "required": true
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "blogs"
+    }
+  }
+}

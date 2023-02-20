@@ -1,0 +1,5 @@
+/**
+ * message service
+ */
+
+export default () => ({});
